@@ -1,0 +1,134 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.input-container label {
+    font-size: 24px;
+    font-style: italic;
+    color: #00000073;
+}
+
+
+.input-container input {
+    height: 60px;
+    width: 650px;
+    font-size: 20px;
+    padding-left: 25px;
+    filter: brightness(95%);
+    transition: transform 0.5s ease;
+
+}
+
+.input-container input:hover {
+    transform: scale(1.05);
+    filter: brightness(100%);
+}
+
+
+.checkbox-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+}
+
+.checkbox-item label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 300px;
+}
+
+.checkbox-item input {
+    width: 24px;
+    margin: 0;
+    background-color: green;
+    color: greenyellow;
+}
+
+.checkbox-item span {
+    font-size: 22px;
+    display: flex;
+}
+
+.range-input {
+    width: fit-content;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+
+}
+
+.mapping-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(36, 41, 46, 0.3);
+    border-radius: 6px;
+}
+
+.mapping-content {
+    margin-left: 10px;
+}
+.mapping-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 15px;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.mapping-input {
+    display: flex;
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.mapping-input input {
+    height: 32px;
+    width: 250px;
+}
+
+.color-input {
+    background-color: white;
+    border: none;
+    padding: 5px;
+}
+
+.color-input span {
+    color: blue;
+}
+
+.color-input:hover {
+    background-color: rgba(128, 128, 128, 0.566);
+}
+
+.remove-button {
+    background-color: white;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.remove-button:hover {
+    transform: scale(1.2);
+}
+
+.remove-button img {
+    width: 24px;
+}

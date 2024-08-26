@@ -1,0 +1,21 @@
+.project-card {
+    width: 500px;
+    height: 100px;
+    padding: 20px;
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.216);
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+.project-card:hover {
+background-color: #ecf1ef67;
+transform: scale(1.05);
+}
+
+.project-card span {
+    font-size: 24px;
+}

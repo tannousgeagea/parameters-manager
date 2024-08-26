@@ -1,0 +1,25 @@
+.processor-details {
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    gap: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+.processor-details h1 {
+  margin-bottom: 40px;
+  padding: 10px;
+}   
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  height: calc(100vh - 625px);
+  justify-content: center;
+  overflow: scroll;
+  border: 1px solid #f8f9fa;
+  padding: 20px;
+}
+  

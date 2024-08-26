@@ -1,0 +1,23 @@
+
+.processor-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* Center the grid in the container */
+    box-sizing: border-box;
+    gap: 3rem;
+}
+
+.processor-section {
+    display: grid;
+    gap: 3rem;
+    max-width: 1200px;  /* Limit the maximum width of the grid */
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));  /* Responsive grid layout */
+    padding: 10px;
+    box-sizing: border-box;  /* Ensure padding is included in the element's width and height */
+}
+
+.processor-section a {
+    text-decoration: none;
+    color: black;
+}
