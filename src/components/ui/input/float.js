@@ -8,7 +8,7 @@ const FloatInput = ({ name, value, description, onChange }) => {
             <input 
                 type="number"
                 min="0"
-                step="0.01"
+                step="0.001"
                 name={name}
                 value={value} 
                 onChange={(e) => onChange(name, parseFloat(e.target.value))}

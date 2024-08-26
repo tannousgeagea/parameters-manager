@@ -6,12 +6,13 @@ export const useUpdateParams = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const updateConfig = async (formData) => {
+  const updateConfig = async (params, restart = false) => {
     setLoading(true);
     setError(null);
     setData(null);  // Clear previous data
     try {
-      const response = await updateParams(formData);
+      console.log(restart)
+      const response = await updateParams(params, restart);
       setData(response);  // Store the response data
       return response;  // Return the response data
     } catch (err) {

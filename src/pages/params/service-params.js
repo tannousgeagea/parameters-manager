@@ -6,7 +6,7 @@ import '../service/service.css'
 import paramsIcon from '../../assets/icons/cloud.png'
 
 const ServiceParamsPage = () => {
-  const { data, loading, error } = useFetchData('/api/v1/params/Segments');
+  const { data, loading, error } = useFetchData('/api/v1/params/segmentation');
   
   if (error) return <p>Error loading data</p>; 
   if (loading) return <p>Loading data...</p>; 
@@ -21,7 +21,7 @@ const ServiceParamsPage = () => {
   
           <div className='app-header'>
               <div className="section-title">
-                  <img src={paramsIcon} alt="param-icon" class="section-title rotateY"></img>
+                  <img src={paramsIcon} alt="param-icon" className="section-title rotateY"></img>
                   <span>Service Parameters: {service_name}</span>
               </div>
           </div>

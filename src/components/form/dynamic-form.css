@@ -56,12 +56,21 @@
     display: flex;
     justify-content: flex-end;  /* Aligns the button to the right */
     margin-top: 20px;  /* Adds some space above the button */
+    margin-right: 5px;
+    gap: 2rem;
     }
 
-.button-container button {
+.button-container button.normal{
     padding: 10px 20px;
     font-size: 22px;
     font-style: italic;
+    }
+
+.button-container button.danger {
+    padding: 10px 20px;
+    font-size: 22px;
+    font-style: italic;
+    color: red;
     }
 
 .loading-spinner {

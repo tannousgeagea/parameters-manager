@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import useFetchData from "../../hooks/use-fetch-data";
 import { useParams } from "react-router-dom";
+import useFetchData from "../../hooks/use-fetch-data";
 import ProjectCard from "../../components/ui/card/service-card";
 import ProcessorDetails from "../../components/ui/common/processor-details";
 import '../style.css'
 import '../service/service.css'
+import processorIcon from '../../assets/icons/capability.png'
 
 const ProcessorPage = () => {
   const { processorName } = useParams();
@@ -15,10 +15,8 @@ const ProcessorPage = () => {
   const [index, setIndex] = useState(null)
 
   const handleClick = (idx) => {
-    // Toggle the display of the details
     setShowDetails(true);
     setIndex(idx)
-
   };
 
   if (loading) return <p>Loading ...</p>
@@ -30,7 +28,7 @@ const ProcessorPage = () => {
   
           <div className='app-header'>
               <div className="section-title">
-                  {/* <img src={DatasetIcon} className="header-icon"></img> */}
+                  <img src={processorIcon} className="section-title spin" alt="processor-icon"></img>
                   <span>Processor: {processorName.replace(/_/g, " ").toUpperCase()}</span>
               </div>
           </div>

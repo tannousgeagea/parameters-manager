@@ -1,10 +1,13 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://10.7.0.6:23085/api/v1/params/Segments';
+const API_BASE_URL = 'http://10.7.0.6:23085/api/v1/params/segmentation';
 
-export const updateParams = async (formData) => {
+export const updateParams = async (formData, restart = false) => {
+  const payload = { ...formData, restart };
+
+  console.log(payload)
   try {
-    const response = await axios.put(API_BASE_URL, formData, {
+    const response = await axios.put(API_BASE_URL, payload, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

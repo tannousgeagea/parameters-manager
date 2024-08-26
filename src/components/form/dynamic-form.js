@@ -11,10 +11,10 @@ const DynamicForm = ({ params }) => {
   const { updateConfig, loading, error, data } = useUpdateParams();  // Use the hook
   const { handleStatus, statusMessage, setStatusMessage, handleCloseMessage } = useHandleStatus();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, restart = false) => {
     e.preventDefault();
     try {
-      const response = await updateConfig(updatedParams);
+      const response = await updateConfig(updatedParams, restart);
       if (response) {
         handleStatus(response);
       } 
@@ -27,9 +27,10 @@ const DynamicForm = ({ params }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='form'>
+    <form className='form'>
       <div className="button-container">
-        <button type="submit" disabled={loading}>Submit</button>
+        <button type="button" disabled={loading} className='button-container normal' onClick={(e) => handleSubmit(e, false)}>Update Params</button>
+        <button type="button" disabled={loading} className='button-container danger' onClick={(e) => handleSubmit(e, true)}>Update Params & Restart</button>
       </div>
 
       <div className={`input-group ${loading ? 'loading' : ''}`}>  {/* Wrapper div for all inputs */}
