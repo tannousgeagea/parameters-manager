@@ -7,26 +7,42 @@
     text-align: center;
 }
 
-.input-container label {
-    font-size: 24px;
-    font-style: italic;
-    color: #00000073;
+.input-label {
+    display: flex;
+    gap: 5px;
 }
 
+.input-label label {
+    font-size: 24px;
+    font-style: italic;
+    color: #0000005e;
+}
+
+.info-section {
+    display: flex;
+}
+
+.input-section img {
+    width: 18px;
+    height: 18px;
+    color: black;
+}
 
 .input-container input {
     height: 60px;
     width: 650px;
     font-size: 20px;
+    border-radius: 6px;
     padding-left: 25px;
     filter: brightness(95%);
-    transition: transform 0.5s ease;
-
+    border: 1px solid rgba(128, 128, 128, 0.266);
+    transition: all 0.5s ease;
 }
 
 .input-container input:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
     filter: brightness(100%);
+    /* opacity: 80%; */
 }
 
 
@@ -76,20 +92,47 @@
 .mapping-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(36, 41, 46, 0.3);
+    border: 1px solid rgba(36, 41, 46, 0);
     border-radius: 6px;
+    padding: 0px 10px;
+    gap: 1rem;
+}
+
+.mapping-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.add-mapping-button {
+    display: flex;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid rgba(128, 128, 128, 0.644);
+}
+
+.add-mapping-button:hover {
+    background-color: rgba(128, 128, 128, 0.294);
+    opacity: 80%;
 }
 
 .mapping-content {
-    margin-left: 10px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+
 .mapping-item {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 0px 15px;
     justify-content: space-between;
-    gap: 1rem;
 }
 
 .mapping-input {
@@ -103,6 +146,9 @@
 .mapping-input input {
     height: 32px;
     width: 250px;
+    padding: 5px 20px;
+    border: 1px solid grey;
+    border-radius: 3px;
 }
 
 .color-input {
@@ -130,5 +176,31 @@
 }
 
 .remove-button img {
-    width: 24px;
+    width: 26px;
+    height: auto;
+}
+
+.tooltip {
+    position: absolute;
+    margin-left: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: none;
+    pointer-events: none;
+    z-index: 10;
+    top: 0;
+    width: fit-content;
+}
+
+.info-section:hover .tooltip {
+    display: block;
+}
+
+.tooltip p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #55555577;
 }

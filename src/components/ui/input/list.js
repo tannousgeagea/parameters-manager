@@ -1,90 +1,97 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import ColorMapping from './color-picker';
-import iconDelete from '../../../assets/icons/icons8-delete-64.png'
+import iconDelete from '../../../assets/icons/icons8-delete-64.png';
+import './input-style.css'
+import infoIcon from '../../../assets/icons/info.png'
 
-const ValueMappings = () => {
+const ValueMappings = ({ name, value, description, onChange }) => {  // Use name prop for unique identifier and value from parent
 
-    const [mappings, setMappings] = useState([
-        { minValue: 0, maxValue: 0.5, color: '', showColorPicker: false },
-        { minValue: 0.5, maxValue: 1, color: '', showColorPicker: false },
-        ]);
+  // Function to handle input changes for minValue and maxValue
+  const handleInputChange = (index, field, inputValue) => {
+    if (!Array.isArray(value) || typeof value[index] !== 'object') {
+      console.error("Invalid value type or structure. Expected an array of objects.");
+      return;
+    }
 
-  const handleInputChange = (index, field, value) => {
-    const newMappings = [...mappings];
-    newMappings[index][field] = parseFloat(value);
-    setMappings(newMappings);
+    const newMappings = value.map((mapping, i) => 
+      i === index ? { ...mapping, [field]: parseFloat(inputValue) } : mapping
+    );
+    onChange(name, newMappings);
   };
 
   const addMapping = () => {
-    const lastMaxValue = mappings[mappings.length - 1].maxValue;
-    setMappings([...mappings, { minValue: lastMaxValue, maxValue: 1, color: '' }]);
+    const lastMaxValue = value[value.length - 1]?.maxValue ?? 0;  // Ensure a default value
+    const newMappings = [...value, { minValue: lastMaxValue, maxValue: 1, color: '', showColorPicker: false }];
+    onChange(name, newMappings);
   };
 
   const removeMapping = (index) => {
-    if (mappings.length > 1) {
-      const newMappings = mappings.filter((_, i) => i !== index);
-      setMappings(newMappings);
-    } else {
-      alert('You must have at least one mappings.');
+    if (value.length > 1) {
+      const newMappings = value.filter((_, i) => i !== index);
+      onChange(name, newMappings);
+      alert('You must have at least one mapping.');
     }
-  };
-
-  const handleSubmit = () => {
-    const values = mappings.map(mapping => mapping.minValue).concat(mappings[mappings.length - 1].maxValue);
-    console.log('Mappings:', mappings);
-    console.log('Thresholds:', values);
-    // Handle form submission
   };
 
   return (
     <div className='mapping-container'>
-        <div className='mapping-content'>
-            <h3>Value Mappings</h3>
-            {mappings.map((mapping, index) => (
-                <div key={index} className='mapping-item'>
-                    <div className='mapping-input'>
-                        <input
-                            type="number"
-                            step="0.01"
-                            min={index === 0 ? 0 : mappings[index - 1].maxValue}
-                            max={mapping.maxValue}
-                            value={mapping.minValue}
-                            onChange={(e) => handleInputChange(index, 'minValue', e.target.value)}
-                        />
-
-                        <span> - </span>
-                        
-                        <input
-                            type="number"
-                            step="0.01"
-                            min={mapping.minValue}
-                            max={index === mappings.length - 1 ? 1 : mappings[index + 1].minValue}
-                            value={mapping.maxValue}
-                            onChange={(e) => handleInputChange(index, 'maxValue', e.target.value)}
-                        />
+      <div className='mapping-content'>
+        <div className='mapping-header'>
+            <div className="input-label">
+                <label>{name.replace(/_/g, ' ').toUpperCase()}</label>
+                <div className="info-section">
+                    <img src={infoIcon} alt="icon" />
+                    <div className="tooltip">
+                        <p className="description"><strong>{description}</strong></p>
                     </div>
-
-                    <div>
-                        <ColorMapping 
-                            idx={index}
-                            mappingColors={mappings}
-                            setMappingColors={setMappings}
-                        />
-                    </div>
-
-                    <button type="button" onClick={() => removeMapping(index)} className='remove-button'>
-                        <img src={iconDelete} alt="delete" />
-                    </button>
-
-
                 </div>
-            ))}
-            <button type="button" onClick={addMapping}>
-                Add a new mapping
+            </div>
+          <div className='add-mapping-button' onClick={addMapping}>
+              <span>+ Add a new mapping</span>
+          </div>
+        </div>
+
+
+        {value.map((mapping, index) => (
+          <div key={index} className='mapping-item'>
+            <div className='mapping-input'>
+              <input
+                type="number"
+                step="0.01"
+                min={index === 0 ? 0 : value[index - 1].maxValue}
+                max={mapping.maxValue}
+                value={mapping.minValue}
+                onChange={(e) => handleInputChange(index, 'minValue', e.target.value)}
+              />
+
+              <span> - </span>
+
+              <input
+                type="number"
+                step="0.01"
+                min={mapping.minValue}
+                max={index === value.length - 1 ? 1 : value[index + 1].minValue}
+                value={mapping.maxValue}
+                onChange={(e) => handleInputChange(index, 'maxValue', e.target.value)}
+              />
+            </div>
+
+            <div>
+              <ColorMapping
+                idx={index}
+                mappingColors={value}
+                setMappingColors={(newColors) => onChange(name, newColors)}  // Use onChange to update colors
+              />
+            </div>
+
+            <button type="button" onClick={() => removeMapping(index)} className='remove-button'>
+              <img src={iconDelete} alt="delete" />
             </button>
 
-        </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 };

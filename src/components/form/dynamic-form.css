@@ -12,7 +12,7 @@
     flex-direction: column;
     gap: 35px; /* Spacing between inputs */
     padding: 50px; /* Padding around the group */
-    background-color: #f9f9f974; /* Background color for the group */
+    /* background-color: rgba(128, 128, 128, 0.49);  */
     border-radius: 10px; /* Rounded corners for the group */
     border: 1px solid #ddd; /* Border for the group */
     height: calc(100vh - 450px);
@@ -35,16 +35,18 @@
 
 .input-wrapper {
     display: flex;
-    border: 1px solid rgba(128, 128, 128, 0.152);
     padding: 30px;
     border-radius: 10px;
     flex-direction: column;
     transition: all 0.5s ease;
-    box-shadow: 1px 2px rgba(0, 0, 0, 0.196);  /* Add shadow when loading */
+    background-color: rgba(128, 128, 128, 0.007);
     }
 
 .input-wrapper:hover {
     transform: scale(1.02);
+    opacity: 80%s;
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.196);  /* Add shadow when loading */
+    /* border: 0px solid rgba(128, 128, 128, 0.231); */
     }
 
 .app-content {

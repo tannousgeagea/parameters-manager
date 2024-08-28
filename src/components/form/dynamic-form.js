@@ -6,7 +6,7 @@ import { useHandleStatus } from '../../hooks/use-handle-submit';
 import useHandleParamsChange from '../../hooks/use-handle-params-change';
 import './dynamic-form.css'
 
-const DynamicForm = ({ params }) => {
+const DynamicForm = ({ url_path, params }) => {
   const { formData, updatedParams, handleChange} = useHandleParamsChange(params);
   const { updateConfig, loading, error, data } = useUpdateParams();  // Use the hook
   const { handleStatus, statusMessage, setStatusMessage, handleCloseMessage } = useHandleStatus();
@@ -14,7 +14,7 @@ const DynamicForm = ({ params }) => {
   const handleSubmit = async (e, restart = false) => {
     e.preventDefault();
     try {
-      const response = await updateConfig(updatedParams, restart);
+      const response = await updateConfig(url_path, updatedParams, restart);
       if (response) {
         handleStatus(response);
       } 

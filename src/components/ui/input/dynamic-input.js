@@ -4,6 +4,7 @@ import RangeInput from "./range";
 import NumberInput from "./number";
 import FloatInput from "./float";
 import CheckboxInput from "./checkbox";
+import ValueMappings from "./list";
 import React from 'react';
 
 const InputField = ({ param, value, onChange }) => {
@@ -54,6 +55,16 @@ const InputField = ({ param, value, onChange }) => {
     case 'checkbox':
       return (
         <CheckboxInput
+          key={param.name}
+          name={name}
+          value={value}
+          description={param.description}
+          onChange={onChange}
+        />
+      );
+    case 'mapping':  // New case for ValueMappings
+      return (
+        <ValueMappings
           key={param.name}
           name={name}
           value={value}

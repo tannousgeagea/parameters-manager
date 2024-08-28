@@ -23,3 +23,35 @@
   padding: 20px;
 }
   
+.processor-command-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+
+.command {
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(128, 128, 128, 0.392);
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(230, 240, 255, 0.887);
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.command:hover {
+  transform: scale(1.02);
+  opacity: 50%;
+}
+
+.command span {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.631);
+  opacity: 90%;
+}

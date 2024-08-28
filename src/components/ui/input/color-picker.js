@@ -5,12 +5,6 @@ import './input-style.css'
 
 const ColorMapping = ({ idx, mappingColors, setMappingColors }) => {
 
-    // const [mappingColors, setMappingColors] = useState([
-    //     { r: 0, g: 255, b: 0 },
-    //     { r: 0, g: 255, b: 255 },
-    //     { r: 0, g: 0, b: 255 },
-    //   ]);
-
     const handleColorChange = (index, color) => {
         const newMappings = [...mappingColors];
         newMappings[index].color = color.hex;

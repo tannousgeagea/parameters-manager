@@ -29,7 +29,10 @@ const ProcessorParamsPage = () => {
           <div className='processor-content'>
             <div className="processor-section">
                 <div className='content-section'>
-                    <DynamicForm params={params}/>
+                    <DynamicForm 
+                      params={params}
+                      url_path={`/api/v1/params/${processorName}`}
+                    />
                 </div>
             </div>
 

@@ -6,13 +6,13 @@ export const useUpdateParams = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const updateConfig = async (params, restart = false) => {
+  const updateConfig = async (url_path, params, restart = false) => {
     setLoading(true);
     setError(null);
     setData(null);  // Clear previous data
     try {
       console.log(restart)
-      const response = await updateParams(params, restart);
+      const response = await updateParams(url_path, params, restart);
       setData(response);  // Store the response data
       return response;  // Return the response data
     } catch (err) {

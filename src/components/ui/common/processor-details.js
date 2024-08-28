@@ -8,10 +8,19 @@ const ProcessorDetails = ({ data }) => {
   if (!processor) {
     return <p>Processor not found</p>;
   }
-
   
   return (
     <div className="processor-details">
+      
+      <div className='processor-command-container'>
+        <div className='command'>
+          <span>command</span>
+        </div>
+        <div className='command'>
+          <span>log</span>
+        </div>
+      </div>
+
       <h1>{processor.name.replace(/_/g, " ").toUpperCase()}</h1>
       <div className="details">
         {Object.keys(processor).map((key) => (
