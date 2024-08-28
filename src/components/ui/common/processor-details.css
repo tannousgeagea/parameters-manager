@@ -16,7 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
-  height: calc(100vh - 625px);
+  height: calc(100vh - 650px);
   justify-content: center;
   overflow: scroll;
   border: 1px solid #f8f9fa;

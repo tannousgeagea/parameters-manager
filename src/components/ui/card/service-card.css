@@ -1,7 +1,7 @@
 .project-card {
     width: 500px;
-    height: 100px;
-    padding: 20px;
+    height: 150px;
+    padding: 10px;
     background-color: #ecf0f1;
     display: flex;
     justify-content: center;
