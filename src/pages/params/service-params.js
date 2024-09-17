@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useFetchData from "../../hooks/use-fetch-data";
 import ProjectCard from '../../components/ui/card/service-card'
+import Spinner from '../../components/ui/animation/spinner'
 import '../style.css'
 import '../service/service.css'
 import paramsIcon from '../../assets/icons/cloud.png'
@@ -10,7 +11,7 @@ const ServiceParamsPage = () => {
   const { data: processorData, loading: processorLoading, error: processorError } = useFetchData('/api/v1/processor')
 
   if (processorError) return <p>Error loading data</p>; 
-  if (processorLoading) return <p>Loading data...</p>; 
+  // if (processorLoading) return <p>Loading data...</p>; 
 
   return (
       <div className="app-container">
@@ -33,6 +34,13 @@ const ServiceParamsPage = () => {
                 </Link>
             ))}
             </div>
+
+            {processorLoading && 
+              <div className='loading-spinner'>
+                <Spinner />
+              </div>
+            }
+
           </div>
 
 

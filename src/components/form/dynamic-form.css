@@ -66,13 +66,14 @@
     padding: 10px 20px;
     font-size: 22px;
     font-style: italic;
+    color: grey;
     }
 
 .button-container button.danger {
     padding: 10px 20px;
     font-size: 22px;
     font-style: italic;
-    color: red;
+    color: rgba(255, 0, 0, 0.43);
     }
 
 .loading-spinner {

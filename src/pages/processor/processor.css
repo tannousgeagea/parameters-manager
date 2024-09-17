@@ -1,0 +1,52 @@
+
+
+.processor-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expanded {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* transition: height 200ms; */
+  animation: expand 0.5s forwards;
+}
+
+.close-button {
+  display: flex;
+  border-radius: 6px;
+  /* border: 1px solid rgba(128, 128, 128, 0.246); */
+  justify-content: flex-end;
+  width: fit-content;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: -50px;
+  z-index: 10;
+  margin-left: 10px;
+  transition: all 0.5s ease;
+}
+
+.close-button img {
+  width: 18px;
+}
+
+.close-button:hover {
+  opacity: 70%;
+  transform: scale(1.02);
+}
+
+
+@keyframes expand {
+  from {
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+  }
+}

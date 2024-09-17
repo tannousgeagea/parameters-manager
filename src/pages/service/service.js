@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useFetchData from "../../hooks/use-fetch-data";
+import Spinner from "../../components/ui/animation/spinner";
 import ProjectCard from '../../components/ui/card/service-card'
 import serviceIcon from '../../assets/icons/technical-support.png'
 import '../style.css'
@@ -8,9 +9,7 @@ import '../style.css'
 const ServicePage = () => {
 
   const { data, loading, error } = useFetchData('/api/v1/processor')
-  console.log(data.length)
-
-  if (loading) return <p>Loading ...</p>
+  
   if (error) return <p>Error ...</p>
 
   return (
@@ -34,6 +33,11 @@ const ServicePage = () => {
                 </Link>
               ))}
             </div>
+            {loading && 
+              <div className='loading-spinner'>
+                <Spinner />
+              </div>
+            }
           </div>
         </div>
       </div>

@@ -19,6 +19,11 @@ const ColorMapping = ({ idx, mappingColors, setMappingColors }) => {
         // newMappings[index].showColorPicker = !newMappings[index].showColorPicker;
       };
 
+      const handleClose = (index) => {
+        const newMappings = [...mappingColors];
+        newMappings[index].showColorPicker = !newMappings[index].showColorPicker;
+      }
+
     return (
         <div>
             {mappingColors[idx].showColorPicker ? (

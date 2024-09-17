@@ -29,6 +29,7 @@ const ValueMappings = ({ name, value, description, onChange }) => {  // Use name
     if (value.length > 1) {
       const newMappings = value.filter((_, i) => i !== index);
       onChange(name, newMappings);
+    } else {
       alert('You must have at least one mapping.');
     }
   };
@@ -76,7 +77,7 @@ const ValueMappings = ({ name, value, description, onChange }) => {  // Use name
               />
             </div>
 
-            <div>
+            <div className="color-tooltip">
               <ColorMapping
                 idx={index}
                 mappingColors={value}

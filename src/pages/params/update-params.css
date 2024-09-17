@@ -1,0 +1,45 @@
+.processor-section-small {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-left: 100px;
+}
+
+.processor-section-item {
+    text-decoration: none;
+    border: 1px solid rgba(128, 128, 128, 0.316);
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.processor-section-item:hover {
+    opacity: 80%;
+    background-color: rgba(128, 128, 128, 0.387);
+}
+
+.processor-section-item span {
+    text-decoration: none;
+}
+
+
+.no-underline-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Ensures it keeps the text color */
+  }
+
+
+.content-section {
+    margin: auto;
+    padding: 0px 50px;
+    animation: expand 1s forwards;
+  }
+
+@keyframes expand {
+    from {
+        height: 0%;
+    }
+
+    to {
+        height: 100%;
+    }
+    }

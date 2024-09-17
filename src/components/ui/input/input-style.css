@@ -45,7 +45,6 @@
     /* opacity: 80%; */
 }
 
-
 .checkbox-input {
     display: flex;
     flex-direction: column;
@@ -145,10 +144,18 @@
 
 .mapping-input input {
     height: 32px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serifs;
+    color: rgba(128, 128, 128, 0.733);
     width: 250px;
     padding: 5px 20px;
     border: 1px solid grey;
     border-radius: 3px;
+}
+
+.color-tooltip {
+    display: flex;
+    overflow: visible;
 }
 
 .color-input {
@@ -203,4 +210,35 @@
     margin: 5px 0;
     font-size: 1em;
     color: #55555577;
+}
+
+.select-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 250px; 
+    padding: 10px 20px;
+    border-radius: 4px;      /* Rounded corners */
+    background-color: #fff; 
+    border: 1px solid #ddd;  /* Customize border */
+}
+
+.select-input select{
+    font-size: 26px;     
+    color: #333;
+    background-color: white;
+    border: none;
+    opacity: 80%;
+    appearance: none;        /* Remove default styling */
+    -webkit-appearance: none;/* Remove default styling for Safari */
+    -moz-appearance: none;   /* Remove default styling for Firefox */
+    cursor: pointer;
+}
+
+.select-input select option {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    min-width: 250px; 
 }

@@ -5,6 +5,7 @@ import NumberInput from "./number";
 import FloatInput from "./float";
 import CheckboxInput from "./checkbox";
 import ValueMappings from "./list";
+import SelectInput from "./option";
 import React from 'react';
 
 const InputField = ({ param, value, onChange }) => {
@@ -72,6 +73,17 @@ const InputField = ({ param, value, onChange }) => {
           onChange={onChange}
         />
       );
+    case 'option':
+      return (
+        <SelectInput 
+          name={param.name}
+          value={value}
+          options={param.meta_info['options']}
+          description={param.description}
+          onChange={onChange}
+        />
+      )
+
     default:
       return null;
   }

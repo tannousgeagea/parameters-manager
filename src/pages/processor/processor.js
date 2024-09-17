@@ -2,10 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/use-fetch-data";
+import Spinner from "../../components/ui/animation/spinner";
 import ProjectCard from "../../components/ui/card/service-card";
 import ProcessorDetails from "../../components/ui/common/processor-details";
 import '../style.css'
+import './processor.css'
 import '../service/service.css'
+import closeIcon from '../../assets/icons/close.png'
 import processorIcon from '../../assets/icons/capability.png'
 
 const ProcessorPage = () => {
@@ -19,7 +22,11 @@ const ProcessorPage = () => {
     setIndex(idx)
   };
 
-  if (loading) return <p>Loading ...</p>
+  const handleClose = () => {
+    setShowDetails(false);
+    setTimeout(1000);
+  }
+
   if (error) return <p>Error loading data</p>
 
   return (
@@ -44,11 +51,23 @@ const ProcessorPage = () => {
               ))}
             </div>
 
-            {showDetails &&
-              <div>
-                <ProcessorDetails data={data[index]}/>
+            {loading && 
+              <div className='loading-spinner'>
+                <Spinner />
               </div>
             }
+
+            {showDetails &&
+              <div className="expanded">
+                <div className="close-button" onClick={() => handleClose()}>
+                  <img src={closeIcon} />
+                </div>
+                <ProcessorDetails data={data[index]}/>
+                {/* <p>Additional Info</p> */}
+              </div>
+            }
+
+
 
           </div>
         </div>
